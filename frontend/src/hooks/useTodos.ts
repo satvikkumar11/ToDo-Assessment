@@ -132,7 +132,7 @@ export const useTodos = () => {
       // setTodos(originalTodos);
       // setError("Failed to clear completed todos on server.");
     } catch (err) {
-      setTodos(originalTodos); // Revert optimistic update
+      setTodos(originalTodos); 
       setError(err instanceof Error ? err.message : 'Failed to clear completed todos');
     }
   };

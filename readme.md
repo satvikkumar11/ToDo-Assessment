@@ -119,3 +119,58 @@ Refer to `API_DOCUMENTATION.md` for more detailed information on request/respons
 - **Axios**: Promise-based HTTP client for sending notifications to Slack.
 - **dotenv**: For managing environment variables.
 - **CORS**: For handling Cross-Origin Resource Sharing.
+
+## Frontend Setup (React + Vite + Tailwind)
+
+Follow these steps to run the frontend locally:
+
+1. **Navigate to the frontend directory:**
+
+   ```bash
+   cd frontend
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configure environment variables:**
+
+   - Copy `.env.example` (from the root) or create a `.env` file in the `frontend` directory.
+   - Fill in your Firebase project credentials:
+     ```
+     VITE_FIREBASE_API_KEY=your_firebase_api_key
+     VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+     VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+     VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+     VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+     VITE_FIREBASE_APP_ID=your_firebase_app_id
+     VITE_FIREBASE_MEASUREMENT_ID=your_firebase_measurement_id
+     ```
+   - You can find these values in your Firebase project settings.
+
+4. **Start the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+   - The app will be available at [http://localhost:5173](http://localhost:5173) by default.
+
+5. **Linting (optional):**
+
+   ```bash
+   npm run lint
+   ```
+
+6. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+**Notes:**
+
+- Make sure the backend server is running at `http://localhost:3000` (or update the API URL in [`src/utils/api.ts`](frontend/src/utils/api.ts) if needed).
+- The frontend uses Firebase Authentication (Google Sign-In). Ensure your Firebase project is set up for web and Google sign-in is enabled.
