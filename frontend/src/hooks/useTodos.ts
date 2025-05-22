@@ -62,7 +62,7 @@ export const useTodos = () => {
       const updatedTodoFromServer = await apiUpdateTodo(id, data);
       setTodos(prevTodos => prevTodos.map(t => t.id === id ? updatedTodoFromServer : t));
     } catch (err) {
-      setTodos(originalTodos); // Revert optimistic update on error
+      setTodos(originalTodos); 
       setError(err instanceof Error ? err.message : 'Failed to edit todo');
     }
   };
@@ -77,7 +77,7 @@ export const useTodos = () => {
       await apiDeleteTodo(id);
       // State is already updated optimistically
     } catch (err) {
-      setTodos(originalTodos); // Revert optimistic update
+      setTodos(originalTodos); 
       setError(err instanceof Error ? err.message : 'Failed to delete todo');
     } finally {
       // setIsLoading(false);
@@ -109,7 +109,7 @@ export const useTodos = () => {
         )
       );
     } catch (err) {
-      setTodos(originalTodos); // Revert optimistic update
+      setTodos(originalTodos); 
       setError(err instanceof Error ? err.message : `Failed to toggle todo to ${newState}`);
     }
   };

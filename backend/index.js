@@ -53,6 +53,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Routes
+
 // POST /todos – Add a new todo
 app.post('/todos', authMiddleware, async (req, res) => {
   try {
@@ -81,7 +82,7 @@ app.post('/todos', authMiddleware, async (req, res) => {
   }
 });
 
-// GET /todos – Fetch all todos for the authenticated user
+// GET /todos – Fetch all todos 
 app.get('/todos', authMiddleware, async (req, res) => {
   try {
     const userId = req.userId; // From authMiddleware
@@ -134,12 +135,12 @@ app.put('/todos/:id', authMiddleware, async (req, res) => {
     const todoId = req.params.id;
     const { title, description, state } = req.body;
 
-    // Validate that at least one field is being updated
+    // Validate, at least one field is being updated
     if (title === undefined && description === undefined && state === undefined) {
       return res.status(400).send({ error: 'No fields to update provided.' });
     }
 
-    // Validate state if provided
+    // Validate state if any provided
     if (state !== undefined && !['pending', 'completed'].includes(state)) {
       return res.status(400).send({ error: "Invalid state. Must be 'pending' or 'completed'." });
     }
@@ -210,7 +211,7 @@ app.post('/summarize', authMiddleware, async (req, res) => {
       console.error('Axios error details:', error.toJSON());
       return res.status(500).send({ error: 'Failed to send summary to Slack.' });
     }
-    // Check if it's a Gemini related error (this is a generic check, specific error types might be available)
+    // Check if it's a Gemini related error
     if (error.message && error.message.includes('GoogleGenerativeAI')) {
        return res.status(500).send({ error: 'Failed to generate summary with AI.' });
     }

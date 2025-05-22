@@ -12,7 +12,7 @@ const FloatingActionButton: React.FC = () => {
     try {
       const response = await summarizeTodos();
       setToast({ message: response.message, type: 'success' });
-      // Optionally, you can display the summary: console.log(response.summary);
+      // you can display the summary: console.log(response.summary);
     } catch (error: any) {
       setToast({ message: error.message || 'Failed to summarize.', type: 'error' });
     } finally {
@@ -48,7 +48,7 @@ const FloatingActionButton: React.FC = () => {
             />
           </svg>
         ) : (
-          // Replace with an actual icon if you have one, e.g., a Paper Plane for "send"
+          // Replace with an actual icon 
           <span>Summarize</span> 
         )}
       </button>

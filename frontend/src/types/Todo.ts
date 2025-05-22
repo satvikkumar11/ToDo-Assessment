@@ -8,4 +8,4 @@ export interface Todo {
   updatedAt: string; // Added based on API documentation
 }
 
-export type TodoFilter = 'all' | 'pending' | 'completed'; // Updated to reflect 'state'
+export type TodoFilter = 'all' | 'pending' | 'completed' | 'active'; // Updated to reflect 'state'
